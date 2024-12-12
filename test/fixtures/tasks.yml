@@ -1,0 +1,11 @@
+one:
+  title: My First Task
+  description: This is my first task
+  due_date: <%= Date.today %>
+  status: pending
+
+two:
+  title: Second Task
+  description: This is the second task
+  due_date: <%= Date.today + 1.week %>
+  status: in_progress
