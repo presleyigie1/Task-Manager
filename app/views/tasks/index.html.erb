@@ -1,6 +1,7 @@
 <div class="mt-5 text-center">
   <div class="inline-flex justify-content-between">
     <div class="inline-flex justify-content-between">
+      <h1>Task Buster</h2>
       <%= link_to 'All Tasks', tasks_path, class:"fw-bold h3" %>
       <%= link_to 'Pending Tasks', tasks_path(status: 'pending'), class:"fw-bold h3 text-info" %>
       <%= link_to 'Complete Tasks', tasks_path(status: 'complete'), class:"fw-bold h3 text-success" %>

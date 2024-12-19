@@ -50,7 +50,7 @@
     color: #aaa;
   }
   
-  /* Tasks */
+  /* Tasks stlying*/
   .calendar-grid .task {
     background: #007bff;
     color: white;
@@ -60,7 +60,7 @@
     margin-top: 3px;
     text-align: center;
   }
-  
+  /* general colour co-ordination for complete, pending*/
   .calendar-grid .task.complete {
     background-color: #28a745;
   }
@@ -79,7 +79,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.822);
   }
   
-  /* Buttons */
   .table td .btn {
     margin-right: 5px;
   }
