@@ -89,6 +89,8 @@ test:
 #
 production:
   <<: *default
+  #url for heroku deployment
+  url: <%= ENV['DATABASE_URL'] %>
   database: task_manager_production
   username: postgres
   password: <%= ENV["TASK_MANAGER_DATABASE_PASSWORD"] %>
