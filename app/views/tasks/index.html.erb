@@ -5,9 +5,43 @@
       <%= link_to 'Pending Tasks', tasks_path(status: 'pending'), class:"fw-bold h3 text-info" %>
       <%= link_to 'Complete Tasks', tasks_path(status: 'complete'), class:"fw-bold h3 text-success" %>
     </div>
-    <%= link_to 'Create new task', new_task_path %>
+    <%= link_to 'Create new task', new_task_path, class: "btn btn-primary" %>
+  </div>
+  <br>
+
+<div class="calendar-container">
+  <h3 class="text-center mb-3">Task Calendar</h3>
+
+  <!-- making days for the calendar -->
+  <div class="calendar-grid header">
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
+    <div>Sun</div>
   </div>
 
+  <!-- adding the simple calendar library-->
+  <div class="calendar-grid">
+    <% (1..42).each do |i| %>
+      <% day = @calendar_start + (i - 1).days %> <!-- Calculate each day -->
+      <div class="day <%= 'inactive' if day.month != @current_month %>">
+        <span><%= day.day %></span>
+        <% @tasks.where('due_date >= ? AND due_date < ?', day.beginning_of_day, day.end_of_day).each do |task| %>
+          <div class="task <%= task.status %>">
+            <%= task.title %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Task List Section -->
+<div class="task-list-container">
+  <h3 class="text-center mb-3">Task List</h3>
   <table class="table">
     <thead>
       <tr>
@@ -23,8 +57,10 @@
           <th scope="row"><%= link_to task.title, task_path(task.id) %></th>
           <td><%= task.status %></td>
           <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
-          <td><%= link_to 'Edit', edit_task_path(task.id) %> 
-          <%= link_to "Destroy", task_path(task.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+          <td>
+            <%= link_to 'Edit', edit_task_path(task.id), class: 'btn btn-sm btn-primary' %> 
+            <%= link_to "Destroy", task_path(task.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure, you want to destroy the selected task?" }, class: 'btn btn-sm btn-danger' %>
+          </td>
         </tr>
       <% end %>
     </tbody>
