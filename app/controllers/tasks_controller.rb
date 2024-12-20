@@ -48,7 +48,7 @@ class TasksController < ApplicationController
     #delete teh task by the id and 
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to tasks_path
+    redirect_to tasks_path, notice: "Task has been deleted"
   end
 
   private

@@ -68,10 +68,11 @@
           <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
           <td>
             <%= link_to 'Edit', edit_task_path(task.id), class: 'btn btn-sm btn-primary' %> 
-            <%= link_to "Destroy", task_path(task.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure, you want to destroy the selected task?" }, class: 'btn btn-sm btn-danger' %>
-          </td>
+            <%= link_to "Destroy", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to destroy the selected task?" }, class: 'btn btn-sm btn-danger' %>
         </tr>
       <% end %>
+
+      
     </tbody>
   </table>
 </div>

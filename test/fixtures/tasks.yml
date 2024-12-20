@@ -1,11 +1,13 @@
+#saample tasks
+
 one:
-  title: My First Task
-  description: This is my first task
+  title: Feed the dog
+  description: feed the dog later
   due_date: <%= Date.today %>
   status: pending
 
 two:
-  title: Second Task
-  description: This is the second task
+  title: Wash the car
+  description: Wash the car later
   due_date: <%= Date.today + 1.week %>
   status: in_progress
