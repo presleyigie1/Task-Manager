@@ -36,6 +36,11 @@ gem "jbuilder"
 #simple calendar, puma gem file
 gem "simple_calendar"
 
+#adding devise 
+gem 'devise'
+
+#adding bcrypt to hash passwords 
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

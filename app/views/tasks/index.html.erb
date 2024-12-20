@@ -9,7 +9,13 @@
     <%= link_to 'Create new task', new_task_path, class: "btn btn-primary" %>
   </div>
   <br>
+<!-- logout button-->
+<div class="logout">
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 
+</div>
+
+<br>
 <div class="calendar-container">
   <h3 class="text-center mb-3">Task Calendar</h3>
 
@@ -40,7 +46,8 @@
   </div>
 </div>
 
-<!-- Task List Section -->
+
+<!-- adding the task list -->
 <div class="task-list-container">
   <h3 class="text-center mb-3">Task List</h3>
   <table class="table">
@@ -53,6 +60,7 @@
       </tr>
     </thead>
     <tbody>
+      
       <% @tasks.each do |task| %>
         <tr>
           <th scope="row"><%= link_to task.title, task_path(task.id) %></th>
